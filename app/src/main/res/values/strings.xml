@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Local Events Hub - Project 2 CST-338</string>
+    <string name="local_events_hub">Local Events Hub</string>
+    <string name="enter_your_username">Enter your username</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="sign_in">Sign In!</string>
 </resources>
