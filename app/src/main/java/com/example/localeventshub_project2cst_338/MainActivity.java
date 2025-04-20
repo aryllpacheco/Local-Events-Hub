@@ -23,12 +23,5 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        binding.SignInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //take the user to the landing page that corresponds
-                //to either user or admin
-            }
-        });
     }
 }
