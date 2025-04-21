@@ -1,5 +1,6 @@
 package com.example.localeventshub_project2cst_338;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,11 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.localeventshub_project2cst_338.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String MAIN_ACTIVITY_USERID = "localeventshub_project2cst_338.MAIN_ACTIVITY_USERID";
+    static final String SHARED_PREFERENCE_USERID_KEY = "localeventshub_project2cst_338.SHARED_PREFERENCES_USERID_KEY";
+    private static final int LOGGED_OUT = -1;
+    private static final String SAVED_INSTANCE_STATE_USERID_KEY = "localeventshub_project2cst_338.SAVED_INSTANCE_STATE_USERID_KEY";
 
     private ActivityMainBinding binding;
     public static final String TAG = "LocalEventsHub";
@@ -41,5 +47,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    static Intent mainActivityIntentFactory(Context context, int userId) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra(MAIN_ACTIVITY_USERID, userId);
+        return intent;
     }
 }
