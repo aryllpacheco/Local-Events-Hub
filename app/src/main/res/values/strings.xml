@@ -11,4 +11,9 @@
     <string name="find_events">find events</string>
     <string name="put_in_your_zip_code">put in your zip code</string>
     <string name="current_events">Current events</string>
+    <string name="admin_user">Admin User</string>
+    <string name="login_out">LogIN / OUT</string>
+    <string name="user">User</string>
+    <string name="current_event_list">Current Event List</string>
+    <string name="admin_things">Admin Things</string>
 </resources>
