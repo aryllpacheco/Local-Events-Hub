@@ -4,4 +4,9 @@
     <string name="enter_your_username">Enter your username</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="sign_in">Sign In!</string>
+    <string name="log_out">Log out</string>
+    <string name="calendar">Calendar</string>
+    <string name="find_events">find events</string>
+    <string name="put_in_your_zip_code">put in your zip code</string>
+    <string name="current_events">Current events</string>
 </resources>
