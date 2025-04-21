@@ -23,4 +23,16 @@ public class LocalEventsRepository {
         return localEventsDAO.getEventByName(eventName);
     }
 
+    public void insertUser(User user){
+        LocalEventsDatabase.databaseWriteExecutor.execute(()->{
+            userDAO.insert(user);
+        });
+    }
+
+    public void insertEvent(LocalEvents event){
+        LocalEventsDatabase.databaseWriteExecutor.execute(()->{
+            localEventsDAO.insert(event);
+        });
+    }
+
 }
