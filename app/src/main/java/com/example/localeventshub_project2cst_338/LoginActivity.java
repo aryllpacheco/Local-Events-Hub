@@ -25,10 +25,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(R.layout.activity_login);
+
+        repository = LocalEventsRepository.getRepository(getApplication());
 
         binding.SignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +61,6 @@ public class LoginActivity extends AppCompatActivity {
                         //User landing page start activity
                         startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));
                     }
-
                 }else{
                     Toast.makeText(getApplicationContext(), "Invalid password",
                             Toast.LENGTH_SHORT).show();
@@ -73,6 +72,9 @@ public class LoginActivity extends AppCompatActivity {
                 binding.UserNameInputStringEditText.setSelection(0);
             }
         });
+    }
 
+    static Intent loginIntentFactory(Context context){
+        return new Intent(context, LoginActivity.class);
     }
 }
