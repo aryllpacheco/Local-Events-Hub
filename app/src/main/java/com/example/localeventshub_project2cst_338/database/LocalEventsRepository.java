@@ -2,6 +2,7 @@ package com.example.localeventshub_project2cst_338.database;
 
 import androidx.lifecycle.LiveData;
 
+import com.example.localeventshub_project2cst_338.database.entities.LocalEvents;
 import com.example.localeventshub_project2cst_338.database.entities.User;
 
 public class LocalEventsRepository {
@@ -17,4 +18,9 @@ public class LocalEventsRepository {
     public LiveData<User> getUserByUserName(String username) {
         return userDAO.getUserByUserName(username);
     }
+
+    public LiveData<LocalEvents> getEventByName(String eventName) {
+        return localEventsDAO.getEventByName(eventName);
+    }
+
 }
