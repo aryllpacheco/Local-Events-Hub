@@ -25,10 +25,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(R.layout.activity_login);
+
+        repository = LocalEventsRepository.getRepository(getApplication());
 
         binding.SignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
