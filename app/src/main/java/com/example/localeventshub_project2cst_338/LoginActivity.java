@@ -54,7 +54,14 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor sharedPrefEditor = sharedPreferences.edit();
                     sharedPrefEditor.putInt(MainActivity.SHARED_PREFERENCE_USERID_KEY, user.getId());
                     sharedPrefEditor.apply();
-                    startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));
+                    if(user.isAdmin()){
+                        //Admin landing page start activity
+                        startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));
+                    }else{
+                        //User landing page start activity
+                        startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));
+                    }
+
                 }else{
                     Toast.makeText(getApplicationContext(), "Invalid password",
                             Toast.LENGTH_SHORT).show();
