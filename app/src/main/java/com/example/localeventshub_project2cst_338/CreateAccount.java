@@ -50,7 +50,7 @@ public class CreateAccount extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             return;
         }else{
-//            getDatbase()
+//            getDatabase()
 //            UserDAO dao = INSTANCE.getuserDao;
 //            User user = new User(username, password);
 //            insertUser(user);
