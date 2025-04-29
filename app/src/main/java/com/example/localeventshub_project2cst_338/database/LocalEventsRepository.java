@@ -64,4 +64,8 @@ public class LocalEventsRepository {
         });
     }
 
+    public LiveData<User> getUserByUserId(int userId) {
+        return userDAO.getUserByUserId(userId);
+    }
+
 }

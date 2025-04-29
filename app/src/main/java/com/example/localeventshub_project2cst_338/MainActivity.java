@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         binding.createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "This is not yet implemented", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, CreateAccount.class);
+                startActivity(intent);
             }
         });
 

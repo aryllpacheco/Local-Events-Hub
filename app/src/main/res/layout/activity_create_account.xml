@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateAccount">
+
+    <TextView
+        android:id="@+id/CreateAccountTextView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/welcome_to_the_local_events_hub_n_create_your_new_account_today"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/CreateUsernameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25sp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/create_a_username"
+        android:inputType="text"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CreateAccountTextView" />
+
+    <EditText
+        android:id="@+id/CreatePasswordEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25sp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/create_a_password"
+        android:inputType="textPassword"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/CreateUsernameEditText" />
+
+    <EditText
+        android:id="@+id/ZipCodeInputEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25sp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/enter_your_zipcode"
+        android:inputType="number"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/CreatePasswordEditText" />
+
+
+    <Button
+        android:id="@+id/CreateAccountButton"
+        android:layout_width="150dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="25sp"
+        android:text="@string/create_account"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ZipCodeInputEditText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

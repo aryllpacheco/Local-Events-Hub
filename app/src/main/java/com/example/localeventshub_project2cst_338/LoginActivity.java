@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private void verifyUser(){
         String username = binding.UserNameInputStringEditText.getText().toString();
         if(username.isEmpty()){
-            Toast.makeText(getApplicationContext(), "Can't username leave empty",
+            Toast.makeText(getApplicationContext(), "Can't leave username empty",
                     Toast.LENGTH_SHORT).show();
             return;
         }
