@@ -16,4 +16,9 @@
     <string name="user">User</string>
     <string name="current_event_list">Current Event List</string>
     <string name="admin_things">Admin Things</string>
+    <string name="welcome_to_the_local_events_hub_n_create_your_new_account_today">Welcome to the Local Events Hub! \nCreate Your New Account Today!</string>
+    <string name="create_a_username">Create a username</string>
+    <string name="create_a_password">Create a password</string>
+    <string name="create_account">Create Account!</string>
+    <string name="enter_your_zipcode">Enter your zipcode</string>
 </resources>

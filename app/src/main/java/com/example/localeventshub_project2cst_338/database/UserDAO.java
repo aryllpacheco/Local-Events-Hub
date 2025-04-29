@@ -19,4 +19,7 @@ public interface UserDAO {
 
    @Query("SELECT * from " + LocalEventsDatabase.USER_TABLE + " WHERE username == :username")
    LiveData<User> getUserByUserName(String username);
+
+    @Query("SELECT * from " + LocalEventsDatabase.USER_TABLE + " WHERE id == :userId")
+    LiveData<User> getUserByUserId(int userId);
 }
