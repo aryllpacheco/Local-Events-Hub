@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                     sharedPrefEditor.apply();
                     if(user.isAdmin()){
                         //Admin landing page start activity
-                        startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));
+                        startActivity(AdminLandingPage.AdminLoginIntentFactory(getApplicationContext(), user.getId()));
                     }else{
                         //User landing page start activity
                         startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));

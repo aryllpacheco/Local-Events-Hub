@@ -2,10 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".AdminLandingPage">
 
-    <View
+
+<View
         android:id="@+id/colorBox"
         android:layout_width="450dp"
         android:layout_height="125dp"
@@ -46,7 +49,6 @@
         android:background="#0000FF"
         android:backgroundTint="#0000FF"
         android:text="@string/user"
-        android:textColor="#000000"
         android:textSize="48sp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="190dp"
@@ -59,7 +61,6 @@
         android:background="#0000FF"
         android:backgroundTint="#0000FF"
         android:text="@string/current_event_list"
-        android:textColor="#000000"
         android:textSize="48sp"
         tools:layout_editor_absoluteX="24dp"
         tools:layout_editor_absoluteY="592dp"
@@ -72,7 +73,6 @@
         android:background="#0000FF"
         android:backgroundTint="#0000FF"
         android:text="@string/admin_things"
-        android:textColor="#000000"
         android:textSize="48sp"
         tools:layout_editor_absoluteX="24dp"
         tools:layout_editor_absoluteY="988dp"
