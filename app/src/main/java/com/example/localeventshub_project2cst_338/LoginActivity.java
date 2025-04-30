@@ -26,7 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_login);
+        View view = binding.getRoot();
+        setContentView(view);
 
         repository = LocalEventsRepository.getRepository(getApplication());
 

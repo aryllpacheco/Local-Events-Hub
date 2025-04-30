@@ -26,7 +26,8 @@ public class CreateAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCreateAccountBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_create_account);
+        View view = binding.getRoot();
+        setContentView(view);
 
         binding.CreateAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +51,8 @@ public class CreateAccount extends AppCompatActivity {
         }else{
             User user = new User(username, password, zipcode);
             repository.insertUser(user);
-            loginIntentFactory(this);
+            //startActivity(LoginActivity.loginIntentFactory(getApplicationContext()));
+            //hook up to the user landing page, using its intent factory
         }
     }
 
