@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 
 import com.example.localeventshub_project2cst_338.database.LocalEventsRepository;
-import com.example.localeventshub_project2cst_338.database.UserDAO;
 import com.example.localeventshub_project2cst_338.database.entities.User;
 import com.example.localeventshub_project2cst_338.databinding.ActivityCreateAccountBinding;
 
@@ -41,21 +40,22 @@ public class CreateAccount extends AppCompatActivity {
     private void verifyUser(){
         String username = binding.CreateUsernameEditText.getText().toString();
         String password = binding.CreatePasswordEditText.getText().toString();
+        int zipcode = binding.ZipCodeInputEditText.getText().hashCode();
         if(username.isEmpty()){
-            Toast.makeText(getApplicationContext(), "Can't leave username empty",
-                    Toast.LENGTH_SHORT).show();
+            toastMaker("Username can not be empty");
             return;
-        }else if(username.equals(repository.getUserByUserName(username))){
-            Toast.makeText(getApplicationContext(), "Username already taken",
-                    Toast.LENGTH_SHORT).show();
+        }else if(repository.getUserByUserName(username).equals(username)){
+            toastMaker("Username already taken");
             return;
         }else{
-//            getDatabase()
-//            UserDAO dao = INSTANCE.getuserDao;
-//            User user = new User(username, password);
-//            insertUser(user);
-//            loginIntentFactory(UserLandingActivity.class);
+            User user = new User(username, password, zipcode);
+            repository.insertUser(user);
+            loginIntentFactory(this);
         }
+    }
+
+    private void toastMaker(String message) {
+        Toast.makeText(CreateAccount.this, message, Toast.LENGTH_SHORT).show();
     }
 
     static Intent createAccountIntentFactory(Context context){
