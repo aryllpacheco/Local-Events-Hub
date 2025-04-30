@@ -14,7 +14,16 @@ public class User {
     private int id;
     private String username;
     private String password;
+    private int zipcode;
     private boolean isAdmin;
+
+    public int getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(int zipcode) {
+        this.zipcode = zipcode;
+    }
 
     public int getId() {
         return id;
@@ -48,9 +57,10 @@ public class User {
         isAdmin = admin;
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, int zipcode) {
         this.username = username;
         this.password = password;
+        this.zipcode = zipcode;
         isAdmin = false;
     }
 
@@ -59,11 +69,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && isAdmin == user.isAdmin && Objects.equals(username, user.username) && Objects.equals(password, user.password);
+        return id == user.id && zipcode == user.zipcode && isAdmin == user.isAdmin && Objects.equals(username, user.username) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, isAdmin);
+        return Objects.hash(id, username, password, zipcode, isAdmin);
     }
 }

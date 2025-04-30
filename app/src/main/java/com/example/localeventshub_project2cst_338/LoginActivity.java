@@ -26,7 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_login);
+        View view = binding.getRoot();
+        setContentView(view);
 
         repository = LocalEventsRepository.getRepository(getApplication());
 
@@ -41,8 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     private void verifyUser(){
         String username = binding.UserNameInputStringEditText.getText().toString();
         if(username.isEmpty()){
-            Toast.makeText(getApplicationContext(), "Can't leave username empty",
-                    Toast.LENGTH_SHORT).show();
+            toastMaker("Username may not be blank");
             return;
         }
         LiveData<User> userObserver = repository.getUserByUserName(username);
@@ -62,16 +62,18 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));
                     }
                 }else{
-                    Toast.makeText(getApplicationContext(), "Invalid password",
-                            Toast.LENGTH_SHORT).show();
+                    toastMaker("Invalid password");
                     binding.PasswordInputStringEditText.setSelection(0);
                 }
             }else{
-                Toast.makeText(getApplicationContext(), String.format("%s is not a valid " +
-                        "username", username), Toast.LENGTH_SHORT).show();
+                toastMaker(String.format("%s is not a valid username", username));
                 binding.UserNameInputStringEditText.setSelection(0);
             }
         });
+    }
+
+    private void toastMaker(String message) {
+        Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     static Intent loginIntentFactory(Context context){

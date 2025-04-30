@@ -21,6 +21,7 @@ import java.util.concurrent.Executors;
 public abstract class LocalEventsDatabase extends RoomDatabase{
     public static final String USER_TABLE = "usertable";
     public static final String LOCAL_EVENTS_TABLE = "localeventstable";
+    public static final String ADMIN_EVENTS_TABLE = "admineventstable";
     private static final int NUMBER_OF_THREADS = 4;
     private static final String DATABASE_NAME = "LocalEventsDatabase";
     private static volatile LocalEventsDatabase INSTANCE;
@@ -53,10 +54,10 @@ public abstract class LocalEventsDatabase extends RoomDatabase{
             databaseWriteExecutor.execute(()-> {
                 UserDAO dao = INSTANCE.getuserDAO();
                 dao.deleteAll();
-                User admin = new User("admin2", "admin2");
+                User admin = new User("admin2", "admin2", 93940);
                 admin.setAdmin(true);
                 dao.insert(admin);
-                User testUser1 = new User("testuser1", "testuser1");
+                User testUser1 = new User("testuser1", "testuser1", 93940);
                 dao.insert(testUser1);
             });
         }
