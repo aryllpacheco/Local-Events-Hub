@@ -1,7 +1,5 @@
 package com.example.localeventshub_project2cst_338;
 
-import static com.example.localeventshub_project2cst_338.LoginActivity.loginIntentFactory;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,7 +43,7 @@ public class CreateAccount extends AppCompatActivity {
         if(username.isEmpty()){
             toastMaker("Username can not be empty");
             return;
-        }else if(repository.getUserByUserName(username).equals(username)){
+        }else if(repository.getUserByUserName(username).toString().equals(username)){
             toastMaker("Username already taken");
             return;
         }else{

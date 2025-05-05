@@ -14,6 +14,8 @@ import com.example.localeventshub_project2cst_338.MainActivity;
 import com.example.localeventshub_project2cst_338.database.entities.LocalEvents;
 import com.example.localeventshub_project2cst_338.database.entities.User;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -59,6 +61,14 @@ public abstract class LocalEventsDatabase extends RoomDatabase{
                 dao.insert(admin);
                 User testUser1 = new User("testuser1", "testuser1", 93940);
                 dao.insert(testUser1);
+            });
+            databaseWriteExecutor.execute(()-> {
+                LocalEventsDAO dao = INSTANCE.getLocalEventsDAO();
+                dao.deleteAll();
+                LocalEvents event1 = new LocalEvents("Ren Faire", LocalDate.of(2025, 7, 16), "Fair");
+                dao.insert(event1);
+                LocalEvents event2 = new LocalEvents("Symphony", LocalDate.of(2025, 5, 17), "Concert");
+                dao.insert(event2);
             });
         }
     };
