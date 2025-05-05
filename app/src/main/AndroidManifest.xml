@@ -17,9 +17,7 @@
             android:exported="false"
             android:label="@string/title_activity_user_landing"
             android:theme="@style/Theme.LocalEventsHubProject2CST338" />
-        <activity
-            android:name=".AdminLandingPage"
-            android:exported="false" />
+
         <activity
             android:name=".AdminLandingPage"
             android:exported="false" />
