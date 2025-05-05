@@ -41,12 +41,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private void verifyUser(){
         String username = binding.UserNameInputStringEditText.getText().toString();
+
         if(username.isEmpty()){
             toastMaker("Username may not be blank");
             return;
         }
         LiveData<User> userObserver = repository.getUserByUserName(username);
         userObserver.observe(this, user -> {
+            toastMaker("user");
             if(user != null){
                 String password = binding.PasswordInputStringEditText.getText().toString();
                 if(password.equals(user.getPassword())){
@@ -56,10 +58,12 @@ public class LoginActivity extends AppCompatActivity {
                     sharedPrefEditor.apply();
                     if(user.isAdmin()){
                         //Admin landing page start activity
+                        toastMaker("Admin");
                         startActivity(AdminLandingPage.AdminLoginIntentFactory(getApplicationContext(), user.getId()));
                     }else{
                         //User landing page start activity
-                        startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));
+                        toastMaker("NotAdmin");
+                        startActivity(UserLanding.UserLandingIntentFactory(getApplicationContext()));
                     }
                 }else{
                     toastMaker("Invalid password");
@@ -75,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
     private void toastMaker(String message) {
         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
     }
+
 
     static Intent loginIntentFactory(Context context){
         return new Intent(context, LoginActivity.class);
