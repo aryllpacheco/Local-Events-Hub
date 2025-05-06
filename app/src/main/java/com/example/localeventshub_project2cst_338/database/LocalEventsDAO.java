@@ -17,6 +17,6 @@ public interface LocalEventsDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(LocalEvents... localEvents);
 
-    @Query("SELECT * from " + LocalEventsDatabase.LOCAL_EVENTS_TABLE + " WHERE eventType == :eventType")
-    LiveData<LocalEvents> getEventByName(String eventType);
+    @Query("SELECT * from " + LocalEventsDatabase.LOCAL_EVENTS_TABLE + " WHERE eventName == :eventName")
+    LiveData<LocalEvents> getEventByName(String eventName);
 }

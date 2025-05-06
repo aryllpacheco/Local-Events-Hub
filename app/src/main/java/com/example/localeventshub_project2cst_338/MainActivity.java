@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String SAVED_INSTANCE_STATE_USERID_KEY = "localeventshub_project2cst_338.SAVED_INSTANCE_STATE_USERID_KEY";
 
     private ActivityMainBinding binding;
-    public static final String TAG = "LocalEventsHub";
+    public static final String TAG = "DEBUG_";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

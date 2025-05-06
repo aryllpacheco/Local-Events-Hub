@@ -19,7 +19,7 @@ public class AdminLandingPage extends AppCompatActivity {
         setContentView(view);
         super.onCreate(savedInstanceState);
     }
-    static Intent AdminLoginIntentFactory(Context context, int user_ID){
+    static Intent AdminLoginIntentFactory(Context context){
         return new Intent(context, LoginActivity.class);
     }
 }
