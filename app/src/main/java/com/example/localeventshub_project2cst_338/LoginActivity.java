@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -14,7 +15,6 @@ import androidx.lifecycle.LiveData;
 import com.example.localeventshub_project2cst_338.database.LocalEventsRepository;
 import com.example.localeventshub_project2cst_338.database.entities.User;
 import com.example.localeventshub_project2cst_338.databinding.ActivityLoginBinding;
-
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void verifyUser(){
+        final String TAG = "LOGIN_TAG_";
         String username = binding.UserNameInputStringEditText.getText().toString();
         if(username.isEmpty()){
             toastMaker("Username may not be blank");
@@ -50,17 +51,21 @@ public class LoginActivity extends AppCompatActivity {
             if(user != null){
                 String password = binding.PasswordInputStringEditText.getText().toString();
                 if(password.equals(user.getPassword())){
+                    toastMaker("Password accepted!");
                     SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(MainActivity.SHARED_PREFERENCE_USERID_KEY, Context.MODE_PRIVATE);
                     SharedPreferences.Editor sharedPrefEditor = sharedPreferences.edit();
                     sharedPrefEditor.putInt(MainActivity.SHARED_PREFERENCE_USERID_KEY, user.getId());
                     sharedPrefEditor.apply();
                     if(user.isAdmin()){
                         //Admin landing page start activity
-                        startActivity(AdminLandingPage.AdminLoginIntentFactory(getApplicationContext(), user.getId()));
+                        Log.d(TAG, "Admin login successful");
+                        startActivity(AdminLandingPage.AdminLoginIntentFactory(getApplicationContext()));
+                        finish();
                     }else{
                         //User landing page start activity
-                        startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext(), user.getId()));
-                    }
+                        Log.d(TAG, "User login successful");
+                        startActivity(UserLandingPage.UserLoginIntentFactory(getApplicationContext()));
+                        finish();                    }
                 }else{
                     toastMaker("Invalid password");
                     binding.PasswordInputStringEditText.setSelection(0);

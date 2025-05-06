@@ -22,4 +22,11 @@ public interface UserDAO {
 
     @Query("SELECT * from " + LocalEventsDatabase.USER_TABLE + " WHERE id == :userId")
     LiveData<User> getUserByUserId(int userId);
+
+    @Query("SELECT * from " + LocalEventsDatabase.USER_TABLE + " WHERE isAdmin = 1 LIMIT 1")
+    User getAdminUser();
+
+    @Query("SELECT * from " + LocalEventsDatabase.USER_TABLE + " WHERE username = :username LIMIT 1")
+    User getUserByUsername(String username);
+
 }
