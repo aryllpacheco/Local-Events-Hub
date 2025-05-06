@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Room;
+import androidx.test.core.app.ApplicationProvider;
 
 import com.example.localeventshub_project2cst_338.database.LocalEventsDAO;
 import com.example.localeventshub_project2cst_338.database.LocalEventsDatabase;
@@ -15,7 +17,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -28,8 +29,9 @@ public class LocalEventsDatabaseUnitTest {
 
     @Before
     public void createDB(){
-//        Context context = getApplicationContext();
-
+        Context context = ApplicationProvider.getApplicationContext();
+        db = Room.inMemoryDatabaseBuilder(context, LocalEventsDatabase.class).build();
+        dao = db.getLocalEventsDAO();
     }
 
     @After
@@ -53,6 +55,6 @@ public class LocalEventsDatabaseUnitTest {
     @Test
     public void deleteEvent() throws Exception{
         dao.deleteAll();
-        assertEquals();
+//        assertEquals();
     }
 }
