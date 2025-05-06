@@ -49,8 +49,7 @@ public class CreateAccount extends AppCompatActivity {
         }else{
             User user = new User(username, password, zipcode);
             repository.insertUser(user);
-            //startActivity(LoginActivity.loginIntentFactory(getApplicationContext()));
-            //hook up to the user landing page, using its intent factory
+            startActivity(UserLandingPage.UserLoginIntentFactory(getApplicationContext()));
         }
     }
 
