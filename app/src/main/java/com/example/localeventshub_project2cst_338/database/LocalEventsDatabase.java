@@ -1,5 +1,7 @@
 package com.example.localeventshub_project2cst_338.database;
 
+import static java.time.LocalDate.of;
+
 import android.content.Context;
 import android.util.Log;
 
@@ -14,10 +16,12 @@ import com.example.localeventshub_project2cst_338.MainActivity;
 import com.example.localeventshub_project2cst_338.database.entities.LocalEvents;
 import com.example.localeventshub_project2cst_338.database.entities.User;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {User.class, LocalEvents.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, LocalEvents.class}, version = 4, exportSchema = false)
 public abstract class LocalEventsDatabase extends RoomDatabase{
     public static final String USER_TABLE = "usertable";
     public static final String LOCAL_EVENTS_TABLE = "localeventstable";
@@ -60,6 +64,14 @@ public abstract class LocalEventsDatabase extends RoomDatabase{
                 dao.insert(admin);
                 User testUser1 = new User("testuser1", "testuser1", 93940);
                 dao.insert(testUser1);
+            });
+            databaseWriteExecutor.execute(()-> {
+                LocalEventsDAO dao = INSTANCE.getLocalEventsDAO();
+                dao.deleteAll();
+                LocalEvents event1 = new LocalEvents("Ren Faire", of(2025, 7, 16), "Fair");
+                dao.insert(event1);
+                LocalEvents event2 = new LocalEvents("Symphony", of(2025, 5, 17), "Concert");
+                dao.insert(event2);
             });
         }
     };
