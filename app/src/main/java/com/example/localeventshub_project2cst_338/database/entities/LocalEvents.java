@@ -14,7 +14,7 @@ public class LocalEvents {
     @PrimaryKey
     private int id;
     private String eventName;
-    private LocalDate eventTime;
+    private int eventTime;
     private String eventType;
 
     public String getEventName() {
@@ -25,11 +25,11 @@ public class LocalEvents {
         this.eventName = eventName;
     }
 
-    public LocalDate getEventTime() {
+    public int getEventTime() {
         return eventTime;
     }
 
-    public void setEventTime(LocalDate eventTime) {
+    public void setEventTime(int eventTime) {
         this.eventTime = eventTime;
     }
 
@@ -49,7 +49,7 @@ public class LocalEvents {
         this.id = id;
     }
 
-    public LocalEvents(String eventName, LocalDate eventTime, String eventType) {
+    public LocalEvents(String eventName, int eventTime, String eventType) {
         this.eventName = eventName;
         this.eventTime = eventTime;
         this.eventType = eventType;
