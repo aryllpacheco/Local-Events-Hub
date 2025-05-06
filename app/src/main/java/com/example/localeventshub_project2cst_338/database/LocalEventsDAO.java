@@ -8,6 +8,8 @@ import androidx.room.Query;
 
 import com.example.localeventshub_project2cst_338.database.entities.LocalEvents;
 
+import java.util.List;
+
 @Dao
 public interface LocalEventsDAO {
 
@@ -19,4 +21,7 @@ public interface LocalEventsDAO {
 
     @Query("SELECT * from " + LocalEventsDatabase.LOCAL_EVENTS_TABLE + " WHERE eventName == :eventName")
     LiveData<LocalEvents> getEventByName(String eventName);
+
+   @Query("SELECT * from " + LocalEventsDatabase.LOCAL_EVENTS_TABLE + " ORDER BY eventTime desc")
+   List<LocalEvents> getAllRecords();
 }

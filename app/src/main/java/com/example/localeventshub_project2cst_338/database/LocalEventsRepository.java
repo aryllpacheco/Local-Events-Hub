@@ -9,6 +9,7 @@ import com.example.localeventshub_project2cst_338.MainActivity;
 import com.example.localeventshub_project2cst_338.database.entities.LocalEvents;
 import com.example.localeventshub_project2cst_338.database.entities.User;
 
+import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -18,6 +19,7 @@ public class LocalEventsRepository {
     private final LocalEventsDAO localEventsDAO;
     private final UserDAO userDAO;
     private static LocalEventsRepository repository;
+    private ArrayList<LocalEvents> allLogs;
 
     public LocalEventsRepository(Application application) {
         LocalEventsDatabase db = LocalEventsDatabase.getDatabase(application);
@@ -40,6 +42,22 @@ public class LocalEventsRepository {
         }
 
         return repository;
+    }
+
+    public ArrayList<LocalEvents> getAllLogs() {
+        Future<ArrayList<LocalEvents>> future = LocalEventsDatabase.databaseWriteExecutor.submit(new Callable<ArrayList<LocalEvents>>() {
+            @Override
+            public ArrayList<LocalEvents> call() throws Exception {
+                return (ArrayList<LocalEvents>) localEventsDAO.getAllRecords();
+            }
+        });
+        try {
+            return future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            Log.i(MainActivity.TAG, "Problem when getting all Local Events in the repository");
+        }
+        return null;
     }
 
     public LiveData<User> getUserByUserName(String username) {
