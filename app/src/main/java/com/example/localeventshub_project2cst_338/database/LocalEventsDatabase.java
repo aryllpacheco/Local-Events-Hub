@@ -31,6 +31,7 @@ public abstract class LocalEventsDatabase extends RoomDatabase{
         if(INSTANCE == null){
             synchronized (LocalEventsDatabase.class){
                 if(INSTANCE == null){
+                    Log.d(MainActivity.TAG, "Initializing LocalEventsDatabase...");
                     INSTANCE = Room.databaseBuilder(
                                     context.getApplicationContext(),
                                     LocalEventsDatabase.class,

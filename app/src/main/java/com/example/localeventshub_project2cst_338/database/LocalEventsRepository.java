@@ -26,22 +26,20 @@ public class LocalEventsRepository {
     }
 
     public static LocalEventsRepository getRepository(Application application) {
-        if(repository != null){
+        if (repository != null) {
             return repository;
+        } else {
+            Log.e(MainActivity.TAG, "Repository is null. Initialization failed.");
         }
-        Future<LocalEventsRepository> future = LocalEventsDatabase.databaseWriteExecutor.submit(new Callable<LocalEventsRepository>() {
-            @Override
-            public LocalEventsRepository call() throws Exception {
-                return new LocalEventsRepository(application);
-            }
-        });
+        Future<LocalEventsRepository> future = LocalEventsDatabase.databaseWriteExecutor.submit(() -> new LocalEventsRepository(application));
 
         try {
-            return future.get();
+            repository = future.get();
         } catch (InterruptedException | ExecutionException e) {
             Log.d(MainActivity.TAG, "Problem getting LocalEventRepository, thread error");
         }
-        return null;
+
+        return repository;
     }
 
     public LiveData<User> getUserByUserName(String username) {
