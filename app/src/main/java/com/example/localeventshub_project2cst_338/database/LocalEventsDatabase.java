@@ -19,7 +19,7 @@ import java.time.Month;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {User.class, LocalEvents.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, LocalEvents.class}, version = 4, exportSchema = false)
 public abstract class LocalEventsDatabase extends RoomDatabase{
     public static final String USER_TABLE = "usertable";
     public static final String LOCAL_EVENTS_TABLE = "localeventstable";
