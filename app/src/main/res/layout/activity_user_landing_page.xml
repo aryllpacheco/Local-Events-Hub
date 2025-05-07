@@ -43,6 +43,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LogOut" />
 
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/user"
+        android:textSize="30sp"
+        app:layout_constraintRight_toLeftOf="@+id/LogOut"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/LogOut"
+        tools:layout_editor_absoluteY="4dp" />
+
     <Button
         android:id="@+id/navigatetoAPI"
         android:layout_width="wrap_content"

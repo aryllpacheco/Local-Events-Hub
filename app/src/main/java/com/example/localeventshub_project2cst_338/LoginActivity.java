@@ -64,8 +64,10 @@ public class LoginActivity extends AppCompatActivity {
                     }else {
                         //User landing page start activity
                         Log.d(TAG, "User login successful");
+                        UserLandingPage USP = new UserLandingPage();
 
                         startActivity(UserLandingPage.UserLoginIntentFactory(getApplicationContext()));
+
                     }
 
                 }else{
