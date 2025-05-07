@@ -5,11 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.localeventshub_project2cst_338.databinding.ActivityUserLandingPageBinding;
 
@@ -22,14 +18,13 @@ public class UserLandingPage extends AppCompatActivity {
         binding = ActivityUserLandingPageBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-      
-        super.onCreate(savedInstanceState);
-        binding.navigatetoAPI.setOnClickListener(new View.OnClickListener(){
+        binding.navigatetoAPI.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(UserLandingPage.this, apiSearchPage.class);
-
-
+                startActivity(intent);
+            }
+        });
         binding.calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,15 +36,14 @@ public class UserLandingPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserLandingPage.this, LoginActivity.class);
-
                 startActivity(intent);
+                finish(); // Optional: prevent user from coming back via back button
             }
         });
     }
 
 
-
-    static Intent UserLandingIntentFactory(Context context) {
+    static Intent UserLoginIntentFactory(Context context) {
         return new Intent(context, UserLandingPage.class);
 
     }
