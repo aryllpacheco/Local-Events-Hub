@@ -66,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d(TAG, "User login successful");
 
                         startActivity(UserLandingPage.UserLoginIntentFactory(getApplicationContext()));
+
                     }
 
                 }else{

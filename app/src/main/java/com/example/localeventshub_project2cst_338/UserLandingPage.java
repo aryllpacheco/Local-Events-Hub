@@ -7,6 +7,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.localeventshub_project2cst_338.database.UserDAO;
 import com.example.localeventshub_project2cst_338.databinding.ActivityUserLandingPageBinding;
 
 public class UserLandingPage extends AppCompatActivity {
@@ -14,6 +15,7 @@ public class UserLandingPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         binding = ActivityUserLandingPageBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -37,9 +39,13 @@ public class UserLandingPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(UserLandingPage.this, LoginActivity.class);
                 startActivity(intent);
-                finish(); // Optional: prevent user from coming back via back button
             }
         });
+    }
+    public void setUserName(String userName){
+
+        binding.userName.setText(userName);
+
     }
 
 
