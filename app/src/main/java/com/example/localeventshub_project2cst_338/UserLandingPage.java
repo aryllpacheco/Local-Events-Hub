@@ -18,14 +18,30 @@ public class UserLandingPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         binding = ActivityUserLandingPageBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        super.onCreate(savedInstanceState);
+
+        binding.calendarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserLandingPage.this, Calendar.class);
+                startActivity(intent);
+            }
+        });
+        binding.LogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserLandingPage.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
-    static Intent UserLoginIntentFactory(Context context) {
+
+    static Intent UserLandingIntentFactory(Context context) {
         return new Intent(context, UserLandingPage.class);
 
     }
