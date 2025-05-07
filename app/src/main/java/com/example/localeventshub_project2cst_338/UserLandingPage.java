@@ -22,6 +22,13 @@ public class UserLandingPage extends AppCompatActivity {
         binding = ActivityUserLandingPageBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+      
+        super.onCreate(savedInstanceState);
+        binding.navigatetoAPI.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(UserLandingPage.this, apiSearchPage.class);
+
 
         binding.calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +41,7 @@ public class UserLandingPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserLandingPage.this, LoginActivity.class);
+
                 startActivity(intent);
             }
         });
