@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
         LiveData<User> userObserver = repository.getUserByUserName(username);
+
         userObserver.observe(this, user -> {
             if(user != null){
                 String password = binding.PasswordInputStringEditText.getText().toString();
@@ -63,8 +64,10 @@ public class LoginActivity extends AppCompatActivity {
                     }else {
                         //User landing page start activity
                         Log.d(TAG, "User login successful");
+
                         startActivity(UserLandingPage.UserLoginIntentFactory(getApplicationContext()));
                     }
+
                 }else{
                     toastMaker("Invalid password");
                     binding.PasswordInputStringEditText.setSelection(0);
