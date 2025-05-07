@@ -53,19 +53,17 @@ public abstract class LocalEventsDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(()-> {
                 UserDAO dao = INSTANCE.getuserDAO();
                 dao.deleteAll();
-                User admin = new User("admin2", "admin2", 93940);
+                User admin = new User("admin", "admin", 93940);
                 admin.setAdmin(true);
                 dao.insert(admin);
                 User testUser1 = new User("testuser1", "testuser1", 93940);
                 dao.insert(testUser1);
-            });
-            databaseWriteExecutor.execute(()-> {
-                LocalEventsDAO dao = INSTANCE.getLocalEventsDAO();
-                dao.deleteAll();
+                LocalEventsDAO dao1 = INSTANCE.getLocalEventsDAO();
+                dao1.deleteAll();
                 LocalEvents event1 = new LocalEvents("Ren Faire", 7, "Fair");
-                dao.insert(event1);
+                dao1.insert(event1);
                 LocalEvents event2 = new LocalEvents("Symphony", 12, "Concert");
-                dao.insert(event2);
+                dao1.insert(event2);
             });
         }
     };
