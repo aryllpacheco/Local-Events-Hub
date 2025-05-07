@@ -44,7 +44,7 @@ public class LocalEventsRepository {
         return repository;
     }
 
-    public ArrayList<LocalEvents> getAllLogs() {
+    public ArrayList<LocalEvents> getAllEvents() {
         Future<ArrayList<LocalEvents>> future = LocalEventsDatabase.databaseWriteExecutor.submit(new Callable<ArrayList<LocalEvents>>() {
             @Override
             public ArrayList<LocalEvents> call() throws Exception {

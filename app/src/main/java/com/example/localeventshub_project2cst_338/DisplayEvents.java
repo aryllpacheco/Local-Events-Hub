@@ -27,19 +27,20 @@ public class DisplayEvents extends AppCompatActivity {
         binding = ActivityDisplayEventsBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        updateDisplay();
     }
 
-//    private void updateDisplay() {
-//        ArrayList<LocalEvents> allLogs = repository.getAllLogs();
-//        if (allLogs.isEmpty()) {
-//            binding.logDisplayTextView.setText("No events currently on the books");
-//        }
-//        StringBuilder sb = new StringBuilder();
-//        for (LocalEvents log : allLogs) {
-//            sb.append(log);
-//        }
-////        binding.logDisplayTextView.setText(sb.toString());
-//    }
+    private void updateDisplay() {
+        ArrayList<LocalEvents> allLogs = repository.getAllEvents();
+        if (allLogs.isEmpty()) {
+            binding.CurrentEventDisplayTextView.setText("No events currently on the books");
+        }
+        StringBuilder sb = new StringBuilder();
+        for (LocalEvents log : allLogs) {
+            sb.append(log);
+        }
+        binding.CurrentEventDisplayTextView.setText(sb.toString());
+    }
     static Intent displayEventsIntentFactory(Context context){
         return new Intent(context, DisplayEvents.class);
     }
