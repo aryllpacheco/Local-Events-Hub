@@ -39,7 +39,6 @@ public class UserLandingPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(UserLandingPage.this, LoginActivity.class);
                 startActivity(intent);
-                finish(); // Optional: prevent user from coming back via back button
             }
         });
     }
