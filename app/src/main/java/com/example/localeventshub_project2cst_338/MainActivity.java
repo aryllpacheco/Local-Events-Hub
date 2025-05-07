@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        Intent intent = new Intent(MainActivity.this, apiSearchPage.class);
-        startActivity(intent);
-        finish();
+        //Intent intent = new Intent(MainActivity.this, apiSearchPage.class);
+        //startActivity(intent);
+        //finish();
 
         binding.logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
