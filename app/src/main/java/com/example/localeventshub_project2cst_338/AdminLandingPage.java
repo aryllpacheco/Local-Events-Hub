@@ -7,7 +7,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.localeventshub_project2cst_338.databinding.ActivityAdminLandingPageBinding;
-import com.example.localeventshub_project2cst_338.databinding.ActivityMainBinding;
 
 public class AdminLandingPage extends AppCompatActivity {
     private ActivityAdminLandingPageBinding binding;

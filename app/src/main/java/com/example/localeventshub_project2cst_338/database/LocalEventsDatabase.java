@@ -52,8 +52,7 @@ public abstract class LocalEventsDatabase extends RoomDatabase {
             super.onCreate(db);
             Log.i(MainActivity.TAG, "Database created");
             databaseWriteExecutor.execute(()-> {
-                UserDAO dao = INSTANCE.getuserDAO();
-                dao.deleteAll();
+                UserDAO dao = INSTANCE.getUserDAO();
                 User admin = new User("admin", "admin", 93940);
                 admin.setAdmin(true);
                 dao.insert(admin);
@@ -72,7 +71,7 @@ public abstract class LocalEventsDatabase extends RoomDatabase {
 
 
 
-    public abstract UserDAO getuserDAO();
+    public abstract UserDAO getUserDAO();
     public abstract LocalEventsDAO getLocalEventsDAO();
     public abstract AdminEventDAO adminEventDAO();
 

@@ -24,7 +24,7 @@ public class LocalEventsRepository {
     public LocalEventsRepository(Application application) {
         LocalEventsDatabase db = LocalEventsDatabase.getDatabase(application);
         this.localEventsDAO = db.getLocalEventsDAO();
-        this.userDAO = db.getuserDAO();
+        this.userDAO = db.getUserDAO();
     }
 
     public static LocalEventsRepository getRepository(Application application) {

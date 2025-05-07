@@ -12,7 +12,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 
+import com.example.localeventshub_project2cst_338.database.LocalEventsDatabase;
 import com.example.localeventshub_project2cst_338.database.LocalEventsRepository;
+import com.example.localeventshub_project2cst_338.database.UserDAO;
 import com.example.localeventshub_project2cst_338.database.entities.User;
 import com.example.localeventshub_project2cst_338.databinding.ActivityLoginBinding;
 
@@ -21,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
     private LocalEventsRepository repository;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
