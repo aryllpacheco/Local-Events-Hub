@@ -20,7 +20,7 @@ public interface LocalEventsDAO {
     void insert(LocalEvents... localEvents);
 
     @Query("SELECT * from " + LocalEventsDatabase.LOCAL_EVENTS_TABLE + " WHERE eventName == :eventName")
-    LiveData<LocalEvents> getEventByName(String eventName);
+    LocalEvents getEventByName(String eventName);
 
    @Query("SELECT * from " + LocalEventsDatabase.LOCAL_EVENTS_TABLE + " ORDER BY eventTime desc")
    List<LocalEvents> getAllRecords();

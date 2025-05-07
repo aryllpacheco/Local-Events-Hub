@@ -44,9 +44,8 @@ public class LocalEventsDatabaseUnitTest {
     public void insertEvent() throws Exception{
         LocalEvents localEvent = new LocalEvents("Example Event", 3, "A fair");
         dao.insert(localEvent);
-        LiveData<LocalEvents> byEvent = dao.getEventByName("Example Event");
-        LocalEvents result = byEvent.getValue();
-        assertThat(result, equalTo(localEvent));
+        LocalEvents byEvent = dao.getEventByName("Example Event");
+        assertThat(byEvent, equalTo(localEvent));
     }
 
     @Test
@@ -61,6 +60,6 @@ public class LocalEventsDatabaseUnitTest {
     public void deleteEvent() throws Exception{
         dao.insert(new LocalEvents("Something cool", 8, "A convention"));
         dao.deleteAll();
-        assertThat(dao.getAllRecords(), is(0));
+        assertThat(dao.getAllRecords().size(), is(0));
     }
 }

@@ -68,7 +68,7 @@ public class LocalEventsRepository {
         return userDAO.getUserByUserName(username);
     }
 
-    public LiveData<LocalEvents> getEventByName(String eventName) {
+    public LocalEvents getEventByName(String eventName) {
         return localEventsDAO.getEventByName(eventName);
     }
 
