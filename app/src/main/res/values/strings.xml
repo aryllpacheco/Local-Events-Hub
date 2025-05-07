@@ -22,4 +22,10 @@
     <string name="create_account">Create Account!</string>
     <string name="enter_your_zipcode">Enter your zipcode</string>
     <string name="look_through_current_events_in_the_calendar">Look through current events in the calendar</string>
+    <string name="search_for_events">Search for events</string>
+    <string name="search">Search</string>
+    <string name="results_will_appear_here">Results will appear here</string>
+    <string name="address">Address</string>
+    <string name="date">Date</string>
+    <string name="event_title">Event Title</string>
 </resources>
