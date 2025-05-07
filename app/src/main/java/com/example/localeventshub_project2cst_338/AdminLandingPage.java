@@ -18,7 +18,20 @@ public class AdminLandingPage extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         super.onCreate(savedInstanceState);
+
+        binding.LogINOUTBUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminLandingPage.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
+
+
     static Intent AdminLoginIntentFactory(Context context){
         return new Intent(context, AdminLandingPage.class);
     }

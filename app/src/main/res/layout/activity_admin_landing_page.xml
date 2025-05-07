@@ -43,12 +43,12 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/users_BUTTON"
+        android:id="@+id/addEvents"
         android:layout_width="752dp"
         android:layout_height="368dp"
         android:background="#0000FF"
         android:backgroundTint="#0000FF"
-        android:text="@string/user"
+        android:text="@string/add_events"
         android:textSize="48sp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="190dp"
