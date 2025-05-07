@@ -40,4 +40,12 @@
     <string name="fri">fri</string>
     <string name="sat">sat</string>
     <string name="click_here">Click Here</string>
+    <string name="add_events">Add Events</string>
+    <string name="event_name">Event Name</string>
+    <string name="time">Time</string>
+    <string name="type">Type</string>
+    <string name="submit">SUBMIT!</string>
+    <string name="enter_event_name">Enter Event Name:</string>
+    <string name="enter_event_time">Enter Event Time:</string>
+    <string name="enter_event_type">Enter Event Type:</string>
 </resources>

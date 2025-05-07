@@ -10,13 +10,14 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.localeventshub_project2cst_338.MainActivity;
+import com.example.localeventshub_project2cst_338.database.entities.AdminEvent;
 import com.example.localeventshub_project2cst_338.database.entities.LocalEvents;
 import com.example.localeventshub_project2cst_338.database.entities.User;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {User.class, LocalEvents.class}, version = 4, exportSchema = false)
+@Database(entities = {User.class, LocalEvents.class, AdminEvent.class}, version = 5, exportSchema = false)
 public abstract class LocalEventsDatabase extends RoomDatabase {
     public static final String USER_TABLE = "usertable";
     public static final String LOCAL_EVENTS_TABLE = "localeventstable";
@@ -24,9 +25,9 @@ public abstract class LocalEventsDatabase extends RoomDatabase {
     private static final int NUMBER_OF_THREADS = 4;
     private static final String DATABASE_NAME = "LocalEventsDatabase";
     private static volatile LocalEventsDatabase INSTANCE;
-    static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+    public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static LocalEventsDatabase getDatabase(final Context context){
+    public static LocalEventsDatabase getDatabase(final Context context){
         if(INSTANCE == null){
             synchronized (LocalEventsDatabase.class){
                 if(INSTANCE == null){
@@ -68,7 +69,12 @@ public abstract class LocalEventsDatabase extends RoomDatabase {
         }
     };
 
+
+
+
     public abstract UserDAO getuserDAO();
     public abstract LocalEventsDAO getLocalEventsDAO();
+    public abstract AdminEventDAO adminEventDAO();
 
 }
+

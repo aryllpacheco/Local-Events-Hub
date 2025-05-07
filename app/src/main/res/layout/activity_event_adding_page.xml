@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventAddingPage">
+
+
+    <TextView
+        android:id="@+id/eventBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_event_name"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/eventNameTextBox"
+        app:layout_constraintEnd_toStartOf="@id/eventNameTextBox" />
+
+    <EditText
+        android:id="@+id/eventNameTextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_margin="8dp"
+        android:layout_marginStart="44dp"
+        android:hint="@string/event_name"
+        app:layout_constraintStart_toEndOf="@id/eventBox"
+        app:layout_constraintBottom_toBottomOf="@id/eventBox" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="44dp"
+        android:text="@string/enter_event_time"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/eventTimeTextBox"
+        app:layout_constraintEnd_toStartOf="@id/eventTimeTextBox" />
+
+    <EditText
+        android:id="@+id/eventTimeTextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="228dp"
+        android:hint="@string/time"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eventNameTextBox" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/enter_event_type"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/eventTypeTextBox"
+        app:layout_constraintEnd_toStartOf="@id/eventTypeTextBox" />
+
+    <EditText
+        android:id="@+id/eventTypeTextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="228dp"
+        android:hint="@string/type"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eventTimeTextBox" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/eventTypeTextBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
