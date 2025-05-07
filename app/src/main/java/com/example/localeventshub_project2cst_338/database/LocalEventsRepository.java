@@ -30,10 +30,14 @@ public class LocalEventsRepository {
     public static LocalEventsRepository getRepository(Application application) {
         if (repository != null) {
             return repository;
-        } else {
-            Log.e(MainActivity.TAG, "Repository is null. Initialization failed.");
         }
-        Future<LocalEventsRepository> future = LocalEventsDatabase.databaseWriteExecutor.submit(() -> new LocalEventsRepository(application));
+        Future<LocalEventsRepository> future = LocalEventsDatabase.databaseWriteExecutor.submit(new Callable<LocalEventsRepository>() {
+            @Override
+            public LocalEventsRepository call() throws Exception {
+                return new LocalEventsRepository(application);
+            }
+        });
+
 
         try {
             repository = future.get();
