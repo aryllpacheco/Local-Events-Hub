@@ -19,7 +19,7 @@ public class LocalEventsRepository {
     private final LocalEventsDAO localEventsDAO;
     private final UserDAO userDAO;
     private static LocalEventsRepository repository;
-    private ArrayList<LocalEvents> allLogs;
+    private ArrayList<LocalEvents> allEvents;
 
     public LocalEventsRepository(Application application) {
         LocalEventsDatabase db = LocalEventsDatabase.getDatabase(application);
