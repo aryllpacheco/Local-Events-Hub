@@ -24,7 +24,7 @@ public class UserLandingPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-    static Intent UserLoginIntentFactory(Context context) {
+    static Intent UserLandingIntentFactory(Context context) {
         return new Intent(context, LoginActivity.class);
     }
 }

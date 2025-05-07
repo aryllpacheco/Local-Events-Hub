@@ -28,4 +28,15 @@
     <string name="address">Address</string>
     <string name="date">Date</string>
     <string name="event_title">Event Title</string>
+    <string name="arrow"><![CDATA[<--]]></string>
+    <string name="may_2025">May</string>
+    <string name="OtherArrow"><![CDATA[-->]]></string>
+    <string name="prev">prev</string>
+    <string name="sun">sun</string>
+    <string name="mon">mon</string>
+    <string name="tue">tues</string>
+    <string name="wed">wed</string>
+    <string name="thur">thur</string>
+    <string name="fri">fri</string>
+    <string name="sat">sat</string>
 </resources>

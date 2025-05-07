@@ -49,7 +49,7 @@ public class CreateAccount extends AppCompatActivity {
         }else{
             User user = new User(username, password, zipcode);
             repository.insertUser(user);
-            startActivity(UserLandingPage.UserLoginIntentFactory(getApplicationContext()));
+            startActivity(UserLandingPage.UserLandingIntentFactory(getApplicationContext()));
         }
     }
 
