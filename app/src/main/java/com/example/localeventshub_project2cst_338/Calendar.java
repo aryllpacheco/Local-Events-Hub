@@ -110,7 +110,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     }
 
     public void prev(View view) {
-        startActivity(UserLandingPage.UserLandingIntentFactory(getApplicationContext()));
+        startActivity(UserLandingPage.UserLoginIntentFactory(getApplicationContext()));
 
     }
 

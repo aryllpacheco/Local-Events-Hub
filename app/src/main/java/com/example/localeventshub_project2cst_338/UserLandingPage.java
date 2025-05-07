@@ -22,6 +22,13 @@ public class UserLandingPage extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         super.onCreate(savedInstanceState);
+        binding.navigatetoAPI.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(UserLandingPage.this, apiSearchPage.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
