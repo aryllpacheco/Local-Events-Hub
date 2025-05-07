@@ -30,6 +30,13 @@ public class UserLandingPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        binding.LogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserLandingPage.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
