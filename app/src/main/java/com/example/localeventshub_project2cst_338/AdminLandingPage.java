@@ -20,6 +20,6 @@ public class AdminLandingPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
     static Intent AdminLoginIntentFactory(Context context){
-        return new Intent(context, LoginActivity.class);
+        return new Intent(context, AdminLandingPage.class);
     }
 }

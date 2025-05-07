@@ -60,12 +60,11 @@ public class LoginActivity extends AppCompatActivity {
                         //Admin landing page start activity
                         Log.d(TAG, "Admin login successful");
                         startActivity(AdminLandingPage.AdminLoginIntentFactory(getApplicationContext()));
-                        finish();
-                    }else{
+                    }else {
                         //User landing page start activity
                         Log.d(TAG, "User login successful");
                         startActivity(UserLandingPage.UserLoginIntentFactory(getApplicationContext()));
-                        finish();                    }
+                    }
                 }else{
                     toastMaker("Invalid password");
                     binding.PasswordInputStringEditText.setSelection(0);

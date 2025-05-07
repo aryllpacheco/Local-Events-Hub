@@ -9,7 +9,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-
 import com.example.localeventshub_project2cst_338.MainActivity;
 import com.example.localeventshub_project2cst_338.database.entities.LocalEvents;
 import com.example.localeventshub_project2cst_338.database.entities.User;
@@ -18,7 +17,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {User.class, LocalEvents.class}, version = 4, exportSchema = false)
-public abstract class LocalEventsDatabase extends RoomDatabase{
+public abstract class LocalEventsDatabase extends RoomDatabase {
     public static final String USER_TABLE = "usertable";
     public static final String LOCAL_EVENTS_TABLE = "localeventstable";
     public static final String ADMIN_EVENTS_TABLE = "admineventstable";

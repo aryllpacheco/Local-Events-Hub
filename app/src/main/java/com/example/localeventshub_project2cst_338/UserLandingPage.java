@@ -25,6 +25,6 @@ public class UserLandingPage extends AppCompatActivity {
     }
 
     static Intent UserLoginIntentFactory(Context context) {
-        return new Intent(context, LoginActivity.class);
+        return new Intent(context, UserLandingPage.class);
     }
 }
