@@ -32,8 +32,33 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         layoutParams.height = (int)(parent.getHeight() * 0.1666666);
         return new CalendarViewHolder(view, onItemListener);
-    }
 
+        
+    }
+    public void updateEvent(int year, int month, int day, String event){
+        if(isValid(year, month, day, event)){
+            dates.add(new DateInfo(year, month, day, event));
+
+        }
+
+    }
+    public boolean isValid(int year, int month, int day, String event){
+        //not allowing to add events further than 2026
+        if(year<2025||year>2026){
+            return false;
+        }
+        if(month<1||month>12){
+            return false;
+        }
+        //should update to make it so that the day matches the correct days in month
+        if(day<0|| day>31){
+            return false;
+        }
+        if(event.isEmpty()){
+            return false;
+        }
+        return true;
+    }
     @Override
     public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position) {
         String day = daysOfMonth.get(position);
