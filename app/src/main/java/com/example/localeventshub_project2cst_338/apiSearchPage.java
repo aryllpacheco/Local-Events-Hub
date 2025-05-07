@@ -4,6 +4,7 @@ package com.example.localeventshub_project2cst_338;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,46 +56,46 @@ public class apiSearchPage extends AppCompatActivity {
     private void apiCall(String search) {
         String updatedSearch = search.replace(" ", "+");
 
-        try {
-            // Make the network request
-            Call<ApiResponse> call = serpApi.getEvents(
-                    "google_events",
-                    updatedSearch,
-                    "us",
-                    "en",
-                    "90257afc0a4d22e217a699c485665124d10a74c6ccd12c80a902febf72ba47a8"
-            );
+        Call<ApiResponse> call = serpApi.getEvents(
+                "google_events",
+                updatedSearch,
+                "us",
+                "en",
+                "90257afc0a4d22e217a699c485665124d10a74c6ccd12c80a902febf72ba47a8"
+        );
 
-
-            call.enqueue(new Callback<ApiResponse>() {
-                @Override
-                public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                    if (response.isSuccessful()) {
-                        ApiResponse apiResponse = response.body();
-                        if (apiResponse != null) {
-                            List<Event> events = apiResponse.getEvents();
+        call.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                if (response.isSuccessful()) {
+                    ApiResponse apiResponse = response.body();
+                    if (apiResponse != null) {
+                        List<Event> events = apiResponse.getEvents();
+                        if (events != null && !events.isEmpty()) {
                             Log.d("API Success", "Events received: " + events.size());
                             EventAdapter adapter = new EventAdapter(events);
                             binding.recyclerView.setLayoutManager(new LinearLayoutManager(apiSearchPage.this));
                             binding.recyclerView.setAdapter(adapter);
                         } else {
-                            Log.e("API Error", "Response body is null");
+                            Log.e("API Error", "Events list is null or empty");
+                            Toast.makeText(apiSearchPage.this, "No events found for that search.", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Log.e("API Error", "Failed to fetch data");
+                        Log.e("API Error", "Response body is null");
+                        Toast.makeText(apiSearchPage.this, "No response from server.", Toast.LENGTH_SHORT).show();
                     }
+                } else {
+                    Log.e("API Error", "Unsuccessful response: " + response.code());
+                    Toast.makeText(apiSearchPage.this, "Error fetching data.", Toast.LENGTH_SHORT).show();
                 }
+            }
 
-                @Override
-                public void onFailure(Call<ApiResponse> call, Throwable t) {
-                    Log.e("API Error", "Network request failed", t);
-                }
-            });
-        } catch (Exception e) {
-            Log.e("API Error", "Exception occurred during API call: ", e);
-        }
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                Log.e("API Failure", "Network or conversion error: " + t.getMessage(), t);
+                Toast.makeText(apiSearchPage.this, "Failed to connect to API.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
-
-
 }
 
